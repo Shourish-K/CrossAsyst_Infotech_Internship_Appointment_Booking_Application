@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "47152666-8221-411d-9e64-331b2ae941c8",
+		"name": "HealthcareAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AddressAPI",
+			"item": [
+				{
+					"name": "FetchAddressList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/healthcare/vl/api/address",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"healthcare",
+								"vl",
+								"api",
+								"address"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ContactAPI",
+			"item": [
+				{
+					"name": "FetchContactList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/healthcare/vl/api/contacts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"healthcare",
+								"vl",
+								"api",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PatientAPI",
+			"item": [
+				{
+					"name": "FetchPatientList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/healthcare/vl/api/patients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"healthcare",
+								"vl",
+								"api",
+								"patients"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ProviderAPI",
+			"item": [
+				{
+					"name": "FetchProviderList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/healthcare/vl/api/providers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"healthcare",
+								"vl",
+								"api",
+								"providers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PatientAddressAPI",
+			"item": [
+				{
+					"name": "FetchPatientAddressList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/healthcare/vl/api/patientaddress",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"healthcare",
+								"vl",
+								"api",
+								"patientaddress"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SpecialtyAPI",
+			"item": [
+				{
+					"name": "FetchSpecialtyList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/healthcare/vl/api/specialties",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"healthcare",
+								"vl",
+								"api",
+								"specialties"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PracticeAPI",
+			"item": [
+				{
+					"name": "FetchPracticeLIst",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/healthcare/vl/api/practices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"healthcare",
+								"vl",
+								"api",
+								"practices"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AppointmentAPI",
+			"item": [
+				{
+					"name": "AppointmentScheduling",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"patientId\":2,\r\n    \"appointmentSlotId\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/healthcare/vl/api/appointments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"healthcare",
+								"vl",
+								"api",
+								"appointments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAppointmentSlotIdByStartTime",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/healthcare/vl/appointments/appointmentslotid/09:30:00/2021-10-05",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"healthcare",
+								"vl",
+								"appointments",
+								"appointmentslotid",
+								"09:30:00",
+								"2021-10-05"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AppointmentSlotAPI",
+			"item": [
+				{
+					"name": "FetchAppointmentSlotList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,304 @@
+INSERT INTO contact(contact_id, value, type)
+VALUES
+(1, '92839482948', 'Mobile'),
+(2, 'ellen.gissop@yahoo.com', 'E-Mail'),
+(3, '8273849334', 'Mobile'),
+(4, 'kristledy0906@gmail.com', 'E-Mail'),
+(5, '3849304756', 'Mobile'),
+(6, 'joegaity5642@gmail.com', 'E-Mail'),
+(7, '9288394758', 'Mobile'),
+(8, 'chrisy.midgley@hotmail.com', 'E-Mail'),
+(9, '8495073948', 'Mobile'),
+(10, 'jarred.sixby@gmail.com', 'E-Mail'),
+(11, '8394750172', 'Mobile'),
+(12, 'apollo.thane@gmail.com', 'E-Mail'),
+(13, '7584957390', 'Mobile'),
+(14, 'wockhardt.worli@hotmail.com', 'E-Mail'),
+(15, '9283947568', 'Mobile'),
+(16, 'fortis.mulund@gmail.com', 'E-Mail'),
+(17, '6378940563', 'Mobile'),
+(18, 'apollo.vashi@gmail.com', 'E-Mail'),
+(19, '7298380204', 'Mobile'),
+(20, 'wockhardt.colaba@hotmail.com', 'E-Mail'),
+(21, '8264892345', 'Mobile'),
+(22, 'fortis.dadar@gmail.com', 'E-Mail');
+
+
+INSERT INTO specialty(specialty_id, name) 
+VALUES
+(1, 'ENT Specialist'),
+(2, 'Physiotherapist'),
+(3, 'Opthalmoloist'),
+(4, 'Cardiologist'),
+(5, 'Dentist'),
+(6, 'Paediatrician'),
+(7, 'Psychiatrists'),
+(8, 'Radiologist'),
+(9, 'Veterinarian'),
+(10, 'Orthopaedic');
+
+
+INSERT INTO practice(practice_id, name) 
+VALUES
+(1, 'Apollo Thane'),
+(2, 'Apollo Vashi'),
+(3, 'Wockhardt Colaba'),
+(4, 'Wockhardt Worli'),
+(5, 'Fortis Mulund'),
+(6, 'Fortis Dadar');
+
+
+INSERT INTO patient
+(patient_id,first_name,last_name,gender,marital_status,email)
+VALUES
+(1,'Ellen','Gissop','Male','Single','abc'),
+(2,'Kriste','Ledwitch','Male','Single','abc'),
+(3,'Joann','Gaitskell','Male','Married','abc'),
+(4,'Christian','Midgley','Female','Married','abc'),
+(5,'Jarred','Slixby','Male','Single','abc');
+
+INSERT INTO provider
+(provider_id,first_name,last_name,year_of_experience,rating,npi)
+VALUES
+(1,'Beatrisa','Vassie',10,4,1848090068),
+(2,'Garrik','Shorten',8,4,9139457409),
+(3,'Giselle','MacTeaguee',10,4,2504421886),
+(4,'Klara','Rabb',15,5,5940560613),
+(5,'Jasper','Axcell',14,5,1103514646);
+
+INSERT INTO address
+(address_id,address1,address2,street,city,state,zip_code,latitude,longitude)
+VALUES
+(1,'apollo.thane',null,'6 Commercial Trail','Wangxian','Troms',390016,34.8838824,136.870408),
+(2,'wockhard.worli',null,'66356 Anderson Crossing','Alexandria','Porto',71676,38.7240446,-77.1082444),
+(3,'fortis.mulund',null,'97651 Hermina Circle','Södertälje','Stockholm',65572,7.43333,124.21667),
+(4,'fortis.dadar',null,'2193 Rowland Court','Luže','Saskatchewan',94883,53.7423435,-8.6346959),
+(5,'wockhard.cola',null,'1210 Trailsway Point','Bošovice','Santarém',33478,13.8267271,-87.4659693),
+(6,'apollo.vashi',null,'6512 Bobwhite Parkway','Nularan','Virginia',02133,48.9059421,17.4598869);
+
+INSERT INTO qualification
+(qualification_id,name)
+VALUES
+(1,'M.B.B.S'),
+(2,'BDS'),
+(3,'BAMS'),
+(4,'BUMS'),
+(5,'BHMS'),
+(6,'BYNS'),
+(7,'B.V.Sc');
+
+INSERT INTO provider_qualification
+(provider_qualification_id,provider_id,qualification_id)
+VALUES
+(1,1,1),
+(2,1,3),
+(3,2,1),
+(4,2,2),
+(5,3,1),
+(6,3,4),
+(7,4,1),
+(8,4,7),
+(9,5,1),
+(10,5,6),
+(11,4,5);
+
+
+INSERT INTO provider_specialty(provider_specialty_id, provider_id, specialty_id) 
+VALUES
+(1,1,4),
+(2,2,3),
+(3,2,7),
+(4,3,10),
+(5,3,4),
+(6,4,9),
+(7,4,2),
+(8,4,5),
+(9,5,4),
+(10,5,7);
+
+
+INSERT INTO patient_address (patient_address_id,patient_id, address1, address2, street, city, state, zip_code) 
+VALUES (1, 1, 'Thane', null, '45 Thane naka', 'Mumbai', 'Maharashtra', 400027);
+
+INSERT INTO patient_address (patient_address_id,patient_id, address1, address2, street, city, state, zip_code) 
+VALUES (2, 2, 'Worli', null, '23 Worli church', 'Mumbai', 'Maharashtra', 400012);
+
+INSERT INTO patient_address (patient_address_id,patient_id, address1, address2, street, city, state, zip_code) 
+VALUES (3, 3, 'Mulund', 'Parel', '7 Mulund naka', 'Mumbai', 'Maharashtra', 400067);
+
+INSERT INTO patient_address (patient_address_id,patient_id, address1, address2, street, city, state, zip_code) 
+VALUES (4, 4, 'dadar', null, '27 Matunga naka', 'Mumbai', 'Maharashtra', 400021);
+
+INSERT INTO patient_address (patient_address_id,patient_id, address1, address2, street, city, state, zip_code) 
+VALUES (5, 5, 'Vashi', 'Wadala', '17 Vashi depot', 'Mumbai', 'Maharashtra', 400032);
+
+
+INSERT INTO location(location_id, name, address_id, practice_id) VALUES (1, 'Thane', 1, 1);
+
+INSERT INTO location(location_id, name, address_id, practice_id) VALUES (2, 'Vashi', 6, 2);
+
+INSERT INTO location(location_id, name, address_id, practice_id) VALUES (3, 'Colaba', 5, 3);
+
+INSERT INTO location(location_id, name, address_id, practice_id) VALUES (4, 'Worli', 2, 4);
+
+INSERT INTO location(location_id, name, address_id, practice_id) VALUES (5, 'Mulund', 3, 5);
+
+INSERT INTO location(location_id, name, address_id, practice_id) VALUES (6, 'Dadar', 4, 6);
+
+
+INSERT INTO location_contact (location_contact_id, location_id, contact_id, active) VALUES(1,1, 11,'yes');
+
+INSERT INTO location_contact (location_contact_id, location_id, contact_id, active) VALUES(2,1, 12, 'yes');
+
+INSERT INTO location_contact (location_contact_id, location_id, contact_id, active) VALUES(3,2, 17,'no');
+
+INSERT INTO location_contact (location_contact_id, location_id, contact_id, active) VALUES(4,2, 18, 'yes');
+
+INSERT INTO location_contact (location_contact_id, location_id, contact_id, active) VALUES(5,3, 19, 'no');
+
+INSERT INTO location_contact (location_contact_id, location_id, contact_id, active) VALUES(6,3, 20, 'no');
+
+INSERT INTO location_contact (location_contact_id, location_id, contact_id, active) VALUES(7,4, 13,'yes');
+
+INSERT INTO location_contact (location_contact_id, location_id, contact_id, active) VALUES(8,4, 14, 'yes');
+
+INSERT INTO location_contact (location_contact_id, location_id, contact_id, active) VALUES(9,5, 15,'no');
+
+INSERT INTO location_contact (location_contact_id, location_id, contact_id, active) VALUES(10,5, 16, 'yes');
+
+INSERT INTO location_contact (location_contact_id, location_id, contact_id, active) VALUES(11,6 , 21, 'no');
+
+INSERT INTO location_contact (location_contact_id, location_id, contact_id, active) VALUES(12,6 , 22, 'no');
+
+
+INSERT INTO practice_contact (practice_contact_id, practice_id, contact_id, active) VALUES(1,1, 11,'yes');
+
+INSERT INTO practice_contact (practice_contact_id, practice_id, contact_id, active) VALUES(2,1, 12, 'yes');
+
+INSERT INTO practice_contact (practice_contact_id, practice_id, contact_id, active) VALUES(3,2, 17,'no');
+
+INSERT INTO practice_contact (practice_contact_id, practice_id, contact_id, active) VALUES(4,2, 18, 'yes');
+
+INSERT INTO practice_contact (practice_contact_id, practice_id, contact_id, active) VALUES(5,3, 19, 'no');
+
+INSERT INTO practice_contact (practice_contact_id, practice_id, contact_id, active) VALUES(6,3, 20, 'no');
+
+INSERT INTO practice_contact (practice_contact_id, practice_id, contact_id, active) VALUES(7,4, 13,'yes');
+
+INSERT INTO practice_contact (practice_contact_id, practice_id, contact_id, active) VALUES(8,4, 14, 'yes');
+
+INSERT INTO practice_contact (practice_contact_id, practice_id, contact_id, active) VALUES(9, 5, 15,'no');
+
+INSERT INTO practice_contact (practice_contact_id, practice_id, contact_id, active) VALUES(10,5, 16, 'yes');
+
+INSERT INTO practice_contact (practice_contact_id, practice_id, contact_id, active) VALUES(11,6 , 21, 'no');
+
+INSERT INTO practice_contact (practice_contact_id, practice_id, contact_id, active) VALUES(12,6 , 22, 'no');
+
+
+INSERT INTO appointment_type(appointment_type_id, name, practice_id) VALUES (1, 'Ears Nose Throat Checkup', 2);
+
+INSERT INTO appointment_type(appointment_type_id, name, practice_id) VALUES (2, 'Physiotherapy', 3);
+
+INSERT INTO appointment_type(appointment_type_id, name, practice_id) VALUES (3, 'Opthalmology', 1);
+
+INSERT INTO appointment_type(appointment_type_id, name, practice_id) VALUES (4, 'Cardiology', 6);
+
+INSERT INTO appointment_type(appointment_type_id, name, practice_id) VALUES (5, 'Dental checkup', 5);
+
+INSERT INTO appointment_type(appointment_type_id, name, practice_id) VALUES (6, 'Pediatric Vaccination', 1);
+
+INSERT INTO appointment_type(appointment_type_id, name, practice_id) VALUES (7, 'Psychiatry', 4);
+
+INSERT INTO appointment_type(appointment_type_id, name, practice_id) VALUES (8, 'Radiology', 3);
+
+INSERT INTO appointment_type(appointment_type_id, name, practice_id) VALUES (9, 'Veterinary Checkup', 2);
+
+INSERT INTO appointment_type(appointment_type_id, name, practice_id) VALUES (10, 'Orthopedic Checkup', 6);
+
+
+INSERT INTO appointment_slot (appointment_slot_id, provider_id, appointment_type_id, location_id,  start_time, end_time, slot_date, open_slots, total_slots)
+VALUES (1, 1, 4, 6, '09:00', '09:30', '10-09-2021', 1, 4);
+
+INSERT INTO appointment_slot (appointment_slot_id, provider_id, appointment_type_id, location_id,  start_time, end_time, slot_date, open_slots, total_slots)
+VALUES (2, 2, 3, 1, '10:30', '11:00','09-09-2021' , 2, 3);
+
+INSERT INTO appointment_slot (appointment_slot_id, provider_id, appointment_type_id, location_id,  start_time, end_time, slot_date, open_slots, total_slots)
+VALUES (3, 3, 4, 6, '14:45', '15:00', '03-10-2021' , 1, 4);
+
+INSERT INTO appointment_slot (appointment_slot_id, provider_id, appointment_type_id, location_id,  start_time, end_time, slot_date, open_slots, total_slots)
+VALUES (4, 4, 2, 3, '16:30', '17:00','08-10-2021' , 4, 4);
+
+INSERT INTO appointment_slot (appointment_slot_id, provider_id, appointment_type_id, location_id,  start_time, end_time, slot_date, open_slots, total_slots)
+VALUES (5, 5, 4, 6, '15:15', '15:45','10-09-2021' , 2, 3);
+
+INSERT INTO appointment_slot (appointment_slot_id, provider_id, appointment_type_id, location_id,  start_time, end_time, slot_date, open_slots, total_slots)
+VALUES (6, 2, 7, 4, '09:30', '10:00','05-10-2021' , 1, 4);
+
+INSERT INTO appointment_slot (appointment_slot_id, provider_id, appointment_type_id, location_id,  start_time, end_time, slot_date, open_slots, total_slots)
+VALUES (7, 3, 10, 6 , '19:15', '19:30','08-10-2021', 1, 3);
+
+INSERT INTO appointment_slot (appointment_slot_id, provider_id, appointment_type_id, location_id,  start_time, end_time, slot_date, open_slots, total_slots)
+VALUES (8, 4, 9, 2, '10:00', '10:15','09-09-2021', 1, 3);
+
+INSERT INTO appointment_slot (appointment_slot_id, provider_id, appointment_type_id, location_id,  start_time, end_time, slot_date, open_slots, total_slots)
+VALUES (9, 5, 7, 4, '08:45', '09:15', '03-10-2021', 2, 4);
+
+
+
+INSERT INTO patient_contact (patient_contact_id, contact_id, patient_id) VALUES (1, 1, 1);
+
+INSERT INTO patient_contact (patient_contact_id, contact_id, patient_id) VALUES (2, 2, 1);
+
+INSERT INTO patient_contact (patient_contact_id, contact_id, patient_id) VALUES (3, 3, 2);
+
+INSERT INTO patient_contact (patient_contact_id, contact_id, patient_id) VALUES (4, 4, 2);
+
+INSERT INTO patient_contact (patient_contact_id, contact_id, patient_id) VALUES (5, 5, 3);
+
+INSERT INTO patient_contact (patient_contact_id, contact_id, patient_id) VALUES (6, 6, 3);
+
+INSERT INTO patient_contact (patient_contact_id, contact_id, patient_id) VALUES (7, 7, 4);
+
+INSERT INTO patient_contact (patient_contact_id, contact_id, patient_id) VALUES (8, 8, 4);
+
+INSERT INTO patient_contact (patient_contact_id, contact_id, patient_id) VALUES (9, 9, 5);
+
+INSERT INTO patient_contact (patient_contact_id, contact_id, patient_id) VALUES (10, 10, 5);
+
+
+-- INSERT INTO slot_configuration(slot_configuration_id, provider_id, appointment_type_id, location_id, slots) VALUES (1, 1, 4, 6, 5);
+
+-- INSERT INTO slot_configuration(slot_configuration_id, provider_id, appointment_type_id, location_id, slots) VALUES (2, 2, 3, 1, 5);
+
+-- INSERT INTO slot_configuration(slot_configuration_id, provider_id, appointment_type_id, location_id, slots) VALUES (3, 3, 4, 6, 6);
+
+-- INSERT INTO slot_configuration(slot_configuration_id, provider_id, appointment_type_id, location_id, slots) VALUES (4, 3, 4, 6, 4);
+
+-- INSERT INTO slot_configuration(slot_configuration_id, provider_id, appointment_type_id, location_id, slots) VALUES (5, 5, 4, 6, 5);
+
+-- INSERT INTO slot_configuration(slot_configuration_id, provider_id, appointment_type_id, location_id, slots) VALUES (5, 2, 7, 4, 6);
+
+-- INSERT INTO slot_configuration(slot_configuration_id, provider_id, appointment_type_id, location_id, slots) VALUES (5, 3, 10, 6, 5);
+
+-- INSERT INTO slot_configuration(slot_configuration_id, provider_id, appointment_type_id, location_id, slots) VALUES (5, 4, 9, 2, 5);
+
+-- INSERT INTO slot_configuration(slot_configuration_id, provider_id, appointment_type_id, location_id, slots) VALUES (5, 5, 7, 4, 4);INSERT INTO patient_address (patient_address_id,patient_id, address1, address2, street, city, state, zip_code) 
+
+
+
+-- INSERT INTO appointment(appointment_id, patient_id, appointment_slot_id, status, created_ts, created_by, updated_ts, updated_by, appointment_reference_id)
+-- VALUES (1,1,2,'New','2021-09-06 13:06', 'patient', null, null, 1001);
+
+-- INSERT INTO appointment(appointment_id, patient_id, appointment_slot_id, status, created_ts, created_by, updated_ts, updated_by, appointment_reference_id)
+-- VALUES (2,3,4,'Rescheduled','2021-09-03 09:26', 'patient', '2021-09-06 10:45', 'patient', 1002);
+
+-- INSERT INTO appointment(appointment_id, patient_id, appointment_slot_id, status, created_ts, created_by, updated_ts, updated_by, appointment_reference_id)
+-- VALUES (3,4,1,'New','2021-08-06 07:46', 'patient', null, null, 1003);
+
+-- INSERT INTO appointment(appointment_id, patient_id, appointment_slot_id, status, created_ts, created_by, updated_ts, updated_by, appointment_reference_id)
+-- VALUES (4,2,5,'Cancelled','2021-09-01 15:34', 'patient', null, null, 1004);
+
+-- INSERT INTO appointment(appointment_id, patient_id, appointment_slot_id, status, created_ts, created_by, updated_ts, updated_by, appointment_reference_id)
+-- VALUES (5,5,3,'Rescheduled','2021-09-10 18:45', 'patient', '2021-10-03 12:26', 'patient', 1005);
+

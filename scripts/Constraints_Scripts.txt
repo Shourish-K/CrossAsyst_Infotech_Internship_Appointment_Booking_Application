@@ -1,0 +1,262 @@
+ALTER TABLE address
+ALTER COLUMN address_id SET NOT NULL,
+ALTER COLUMN address1 SET NOT NULL,
+ALTER COLUMN street SET NOT NULL,
+ALTER COLUMN city SET NOT NULL,
+ALTER COLUMN state SET NOT NULL,
+ALTER COLUMN zip_code SET NOT NULL,
+ALTER COLUMN latitude SET NOT NULL,
+ALTER COLUMN longitude SET NOT NULL;
+
+ALTER TABLE qualification
+ALTER COLUMN qualification_id SET NOT NULL,
+ALTER COLUMN name SET NOT NULL;
+
+ALTER TABLE qualification
+ADD CONSTRAINT qualification_pk_constraints
+PRIMARY KEY (qualification_id);
+
+ALTER TABLE specialty
+ALTER COLUMN specialty_id SET NOT NULL,
+ALTER COLUMN name SET NOT NULL;
+
+ALTER TABLE specialty
+ADD CONSTRAINT specialty_pk_constraints
+PRIMARY KEY (specialty_id);
+
+ALTER TABLE practice
+ALTER COLUMN practice_id SET NOT NULL,
+ALTER COLUMN name SET NOT NULL;
+
+ALTER TABLE practice
+ADD CONSTRAINT practice_pk_constraints
+PRIMARY KEY (practice_id);
+
+ALTER TABLE appointment_type
+ALTER COLUMN appointment_type_id SET NOT NULL,
+ALTER COLUMN name SET NOT NULL,
+ALTER COLUMN practice_id SET NOT NULL;
+
+ALTER TABLE appointment_type
+ADD CONSTRAINT appointment_type_pk_constraints
+PRIMARY KEY (appointment_type_id);
+
+ALTER TABLE appointment_type
+ADD CONSTRAINT appointment_type_fk_constraints
+FOREIGN KEY (practice_id )
+REFERENCES practice ( practice_id );
+
+
+ALTER TABLE address
+ADD CONSTRAINT address_constraints
+PRIMARY KEY (address_id);
+
+ALTER TABLE location
+ALTER COLUMN location_id SET NOT NULL,
+ALTER COLUMN name SET NOT NULL,
+ALTER COLUMN address_id SET NOT NULL,
+ALTER COLUMN practice_id SET NOT NULL;
+
+ALTER TABLE location
+ADD CONSTRAINT location_pk_constraints
+PRIMARY KEY (location_id);
+
+ALTER TABLE location
+ADD CONSTRAINT location_fk_constraints
+FOREIGN KEY (practice_id )
+REFERENCES practice ( practice_id );
+
+ALTER TABLE location
+ADD CONSTRAINT location_foreignkey_constraints
+FOREIGN KEY (address_id )
+REFERENCES address ( address_id );
+
+ALTER TABLE provider
+ALTER COLUMN provider_id SET NOT NULL,
+ALTER COLUMN first_name SET NOT NULL,
+ALTER COLUMN last_name SET NOT NULL,
+ALTER COLUMN year_of_experience SET NOT NULL,
+ALTER COLUMN rating SET NOT NULL,
+ALTER COLUMN npi SET NOT NULL;
+
+ALTER TABLE provider
+ADD CONSTRAINT provider_pk_constraints
+PRIMARY KEY (provider_id);
+
+ALTER TABLE patient
+ALTER COLUMN patient_id SET NOT NULL,
+ALTER COLUMN first_name SET NOT NULL,
+ALTER COLUMN last_name SET NOT NULL,
+ALTER COLUMN gender SET NOT NULL,
+ALTER COLUMN marital_status SET NOT NULL;
+
+ALTER TABLE patient
+ADD CONSTRAINT patient_pk_constraints
+PRIMARY KEY(patient_id);
+
+ALTER TABLE appointment
+ADD CONSTRAINT appointment_pk_constraints
+PRIMARY KEY (appointment_id);
+
+ALTER TABLE appointment
+ADD CONSTRAINT appointment_constraints
+FOREIGN KEY (patient_id)
+REFERENCES patient( patient_id );
+
+ALTER TABLE appointment
+ALTER COLUMN appointment_id SET NOT NULL,
+ALTER COLUMN patient_id SET NOT NULL,
+ALTER COLUMN appointment_slot_id SET NOT NULL,
+ALTER COLUMN status SET NOT NULL,
+ALTER COLUMN created_ts SET NOT NULL,
+ALTER COLUMN created_by SET NOT NULL,
+ALTER COLUMN appointment_reference_id SET NOT NULL;
+
+ALTER TABLE appointment_slot
+ALTER COLUMN provider_id SET NOT NULL,
+ALTER COLUMN appointment_type_id SET NOT NULL,
+ALTER COLUMN appointment_slot_id SET NOT NULL,
+ALTER COLUMN location_id SET NOT NULL,
+ALTER COLUMN start_time SET NOT NULL,
+ALTER COLUMN end_time SET NOT NULL,
+ALTER COLUMN slot_date SET NOT NULL,
+ALTER COLUMN open_slots SET NOT NULL,
+ALTER COLUMN total_slots SET NOT NULL;
+
+ALTER TABLE appointment_slot
+ADD CONSTRAINT appointment_slot_constraints
+PRIMARY KEY (appointment_slot_id);
+
+ALTER TABLE appointment_slot
+ADD CONSTRAINT appointment_slot_fk_constraints
+FOREIGN KEY (provider_id )
+REFERENCES provider ( provider_id );
+
+ALTER TABLE appointment_slot
+ADD CONSTRAINT appointmentslot_fk_constraints
+FOREIGN KEY (location_id )
+REFERENCES location ( location_id );
+
+ALTER TABLE appointment_slot
+ADD CONSTRAINT appointmentslot_pk_constraints
+FOREIGN KEY (appointment_type_id )
+REFERENCES appointment_type ( appointment_type_id );
+
+ALTER TABLE contact
+ALTER COLUMN contact_id SET NOT NULL,
+ALTER COLUMN value SET NOT NULL,
+ALTER COLUMN type SET NOT NULL;
+
+ALTER TABLE contact
+ADD CONSTRAINT contact_constraints
+PRIMARY KEY (contact_id);
+
+ALTER TABLE location_contact
+ALTER COLUMN location_id SET NOT NULL,
+ALTER COLUMN contact_id SET NOT NULL,
+ALTER COLUMN active SET NOT NULL,
+ALTER COLUMN location_contact_id SET NOT NULL;
+
+ALTER TABLE location_contact
+ADD CONSTRAINT location_contact_pk_constraints
+PRIMARY KEY (location_contact_id);
+
+ALTER TABLE location_contact
+ADD CONSTRAINT location_contact_fk_constraints
+FOREIGN KEY (location_id )
+REFERENCES location ( location_id );
+
+ALTER TABLE location_contact
+ADD CONSTRAINT location_contact_foreignkey_constraints
+FOREIGN KEY (contact_id )
+REFERENCES contact ( contact_id );
+
+ALTER TABLE patient_address
+ALTER COLUMN address1 SET NOT NULL,
+ALTER COLUMN street SET NOT NULL,
+ALTER COLUMN city SET NOT NULL,
+ALTER COLUMN state SET NOT NULL,
+ALTER COLUMN zip_code SET NOT NULL,
+ALTER COLUMN patient_id SET NOT NULL,
+ALTER COLUMN patient_address_id SET NOT NULL;
+
+ALTER TABLE patient_address
+ADD CONSTRAINT patient_address_pk_constraints
+PRIMARY KEY (patient_address_id);
+
+ALTER TABLE patient_contact
+ALTER COLUMN contact_id SET NOT NULL,
+ALTER COLUMN patient_id SET NOT NULL,
+ALTER COLUMN patient_contact_id SET NOT NULL;
+
+ALTER TABLE patient_contact
+ADD CONSTRAINT patient_contact_pk_constraints
+PRIMARY KEY (patient_contact_id);
+
+ALTER TABLE patient_contact
+ADD CONSTRAINT patient_contact_fk_constraints
+FOREIGN KEY (contact_id )
+REFERENCES contact ( contact_id );
+
+ALTER TABLE patient_contact
+ADD CONSTRAINT patient_contact_foreignkey_constraints
+FOREIGN KEY (patient_id )
+REFERENCES patient ( patient_id );
+
+ALTER TABLE practice_contact
+ALTER COLUMN practice_contact_id SET NOT NULL,
+ALTER COLUMN practice_id SET NOT NULL,
+ALTER COLUMN contact_id SET NOT NULL,
+ALTER COLUMN active SET NOT NULL;
+
+ALTER TABLE practice_contact
+ADD CONSTRAINT practice_contact_pk_constraints
+PRIMARY KEY (practice_contact_id);
+
+ALTER TABLE practice_contact
+ADD CONSTRAINT practice_contact_fk_constraints
+FOREIGN KEY (practice_id )
+REFERENCES practice ( practice_id );
+
+ALTER TABLE practice_contact
+ADD CONSTRAINT practice_contact_foreignkey_constraints
+FOREIGN KEY (contact_id )
+REFERENCES contact ( contact_id );
+
+ALTER TABLE provider_qualification
+ALTER COLUMN provider_id SET NOT NULL,
+ALTER COLUMN qualification_id SET NOT NULL,
+ALTER COLUMN provider_qualification_id SET NOT NULL;
+
+ALTER TABLE provider_qualification
+ADD CONSTRAINT provider_qualification_pk_constraints
+PRIMARY KEY (provider_qualification_id);
+
+ALTER TABLE provider_qualification
+ADD CONSTRAINT provider_qualification_fk_constraints
+FOREIGN KEY (provider_id )
+REFERENCES provider ( provider_id );
+
+ALTER TABLE provider_qualification
+ADD CONSTRAINT provider_qualification_foreign_key_constraints
+FOREIGN KEY (qualification_id )
+REFERENCES qualification ( qualification_id );
+
+ALTER TABLE provider_specialty
+ALTER COLUMN provider_id SET NOT NULL,
+ALTER COLUMN specialty_id SET NOT NULL,
+ALTER COLUMN provider_specialty_id SET NOT NULL;
+
+ALTER TABLE provider_specialty
+ADD CONSTRAINT provider_specialty_pk_constraints
+PRIMARY KEY (provider_specialty_id);
+
+ALTER TABLE provider_specialty
+ADD CONSTRAINT provider_specialty_fk_constraints
+FOREIGN KEY (provider_id )
+REFERENCES provider ( provider_id );
+
+ALTER TABLE provider_specialty
+ADD CONSTRAINT provider_specialty_foreignkey_constraints
+FOREIGN KEY (specialty_id)
+REFERENCES specialty ( specialty_id );

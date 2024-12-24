@@ -1,0 +1,147 @@
+CREATE TABLE address
+(
+ address_id bigint,
+ address1   varchar(256),
+ address2   varchar(100),
+ street     varchar(50),
+ city       varchar(30),
+ state      varchar(20),
+ zip_code   int,
+ latitude   decimal(10,8),
+ longitude  decimal(11,8)
+);
+
+CREATE TABLE appointment
+(
+ appointment_id            bigint,
+ patient_id               bigint,
+ appointment_slot_id      bigint,
+ status                   varchar(30),
+ created_ts               timestamp(6),
+ created_by               varchar(20),
+ updated_ts               timestamp(6),
+ updated_by               varchar(20),
+ appointment_reference_id bigint
+);
+
+CREATE TABLE appointment_slot
+(
+ provider_id         bigint,
+ appointment_type_id bigint,
+ location_id         bigint,
+ start_time              time,
+ end_time                 time,
+ slot_date           date,
+ open_slots          int,
+ total_slots         int,
+ appointment_slot_id bigint
+);
+
+CREATE TABLE appointment_type
+(
+ appointment_type_id bigint,
+ name                varchar(50),
+ practice_id         bigint
+);
+
+CREATE TABLE contact
+(
+ contact_id bigint,
+ value      varchar(50),
+ type       varchar(30)
+);
+
+CREATE TABLE location
+(
+ name        varchar(20),
+ location_id bigint,
+ address_id  bigint,
+ practice_id bigint
+);
+
+CREATE TABLE location_contact
+(
+ location_id         bigint,
+ contact_id          bigint,
+ active              boolean,
+ location_contact_id bigint
+);
+
+CREATE TABLE patient
+(
+ patient_id     bigint,
+ first_name     varchar(20),
+ last_name      varchar(20),
+ gender         varchar(30),
+ marital_status varchar(30),
+email varchar(50)
+);
+
+CREATE TABLE patient_address
+(
+ address1           varchar(20),
+ address2           varchar(50),
+ street             varchar(20),
+ city               varchar(30),
+ state              varchar(20),
+ zip_code           bigint,
+ patient_id         bigint,
+ patient_address_id bigint
+);
+
+CREATE TABLE patient_contact
+(
+ contact_id         bigint,
+ patient_id         bigint, 
+ patient_contact_id bigint
+);
+
+CREATE TABLE practice
+(
+ practice_id bigint,
+ name        varchar(30)
+);
+
+CREATE TABLE practice_contact
+(
+ practice_contact_id bigint,
+ practice_id         bigint,
+ contact_id          bigint,
+ active              boolean
+);
+
+CREATE TABLE provider
+(
+ provider_id        bigint,
+ first_name         varchar(30),
+ last_name          varchar(50),
+ year_of_experience int,
+ rating             int,
+ npi                numeric(10)
+);
+
+CREATE TABLE provider_qualification
+(
+ provider_id               bigint,
+ qualification_id          int,
+ provider_qualification_id bigint
+);
+
+CREATE TABLE provider_specialty
+(
+ provider_id           bigint,
+ specialty_id          bigint,
+ provider_specialty_id bigint
+);
+
+CREATE TABLE qualification
+(
+ qualification_id int,
+ name             varchar(30)
+);
+
+CREATE TABLE specialty
+(
+ specialty_id bigint,
+ name         varchar(20)
+);
